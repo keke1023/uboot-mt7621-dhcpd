@@ -1,7 +1,7 @@
 --flash NAND
---mtdparts "512k(u-boot),256k(u-boot-env),256k(factory),-(firmware)"
+--mtdparts "512k(Bootloader),256k(u-boot-env),1m(Config),256k(factory),-(firmware)"
 --model "Qihoo_360T6GS"
---kernel-offset 0x100000
+--kernel-offset 0x200000
 --reset-pin 7
 --wps-pin 6
 --sysled-pin 13
