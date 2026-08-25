@@ -35,6 +35,9 @@ on:
         default: true
         type: boolean
 
+permissions:
+  contents: write        # 允许 action-gh-release 创建 Release（默认 GITHUB_TOKEN 对 contents 只读，会 403）
+
 jobs:
   build:
     name: Build MT7621 u-boot
@@ -99,7 +102,7 @@ jobs:
           done
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: ${{ inputs.pub_release }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
